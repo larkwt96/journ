@@ -1,0 +1,6 @@
+#!/bin/bash
+
+if [ $# -le 1]; then
+  usage
+  exit 1
+fi
