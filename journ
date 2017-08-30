@@ -1,6 +1,64 @@
 #!/bin/bash
 
-if [ $# -le 1]; then
-  usage
-  exit 1
-fi
+base="$HOME/.journ"
+
+function err {
+    echo "ERROR: $@"
+    exit 1
+}
+
+function usage {
+    echo usage
+}
+
+# Since a lot of commands just require a name, this function checks all args
+# and echos the name to stdout. Validates name against [a-z]+ regex.
+function get_name {
+    if [ $# -ne 1 ]; then
+        usage
+        exit 1
+    elif ![[ "$1" =~ [a-z]+ ]]; then
+        err "Names can only contain lowercase letters"
+    fi
+    echo "$1"
+}
+
+# Function Declaration
+new () {
+    name="$(get_name "$@")"
+    mkdir "$base/$name" &>/dev/null
+}
+
+read() {
+    name="$(get_name "$@")"
+    #TODO
+}
+
+write() {
+    name="$(get_name "$@")"
+    #TODO
+}
+
+list() {
+    ls "$base"
+}
+
+del() {
+    name="$(get_name "$@")"
+    rm -rf "$base/$name"
+}
+
+# Main
+cmd="$1"
+shift
+case "$cmd" in
+    n|new) new "$@" ;;
+    r|read) read "$@" ;;
+    w|write) write "$@" ;;
+    l|list) list "$@" ;;
+    d|del) del "$@" ;;
+    *)
+        usage
+        exit 1
+        ;;
+esac
