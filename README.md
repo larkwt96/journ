@@ -1,0 +1,2 @@
+# journ
+A journaling program.
