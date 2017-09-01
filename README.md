@@ -17,13 +17,13 @@ Commands:
 ```
 journ n[ew] name
 ```
-Creates a new journal with specified name. If journal exists, does nothing.
+Creates a new journal with specified name.
 
 ### Read from a journal
 ```
 journ r[ead] name
 ```
-Displays specified journal with VIEWER, or less if not specified.
+Displays specified journal with less.
 
 ### Write to a journal
 ```
@@ -41,7 +41,7 @@ Lists existing journals.
 ```
 journ d[el] name
 ```
-Deletes specified journal (without confirmation). If journal does not exist, does nothing.
+Deletes specified journal (without confirmation).
 
 ## Environment Variables
 
