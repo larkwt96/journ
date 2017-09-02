@@ -9,7 +9,15 @@ function err {
 }
 
 function usage {
-    echo usage
+	cat <<EOF
+journ {command} [args..]
+Commands:
+  n, or new   - New Journal
+  r, or read  - Read from Journal
+  w, or write - Write in Journal
+  l, or list  - List Journals
+  d, or del   - Delete Journal
+EOF
 }
 
 function chk_name {
