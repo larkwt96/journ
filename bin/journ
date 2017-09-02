@@ -81,6 +81,11 @@ write() {
 
     # Get entry
     "$editor" "$tmp"
+    if [ ! -s "$tmp" ]; then # If nothing written
+        echo "No entry to write."
+        rm -f "$tmp"
+        return
+    fi
 
     # Write entry
     # Note that it uses append redirection, so multiple entries per second is
