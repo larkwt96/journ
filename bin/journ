@@ -53,7 +53,7 @@ read() {
     else
         name="$1"
     fi
-    cat "$base/$name" | less
+    cat "$base/$name/"* | less
 }
 
 write() {
